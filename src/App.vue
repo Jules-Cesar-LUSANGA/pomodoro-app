@@ -25,6 +25,20 @@ const formatedSeconds = computed(() => {
 
 function start() {
 
+  // Check if user typed negative or null minutes
+  if (minutes.value < 0) {
+    minutes.value = minutes.value * -1
+  } else if (minutes.value == 0) {
+    minutes.value = 25;
+  }
+
+  // Check if user typed negative or null break time
+  if (breakTime.value < 0) {
+    breakTime.value = breakTime.value * -1
+  } else if (breakTime.value == 0) {
+    breakTime.value = 5;
+  }
+
   // Keep minutes by session
   minutesBySession.value = minutes.value
 
